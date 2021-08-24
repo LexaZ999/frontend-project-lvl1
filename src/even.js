@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { getName, userName } from './cli.js';
 
 const numMin = 0;
 const numMax = 32;
@@ -21,6 +22,8 @@ const getAnswer = () => {
   return answer;
 };
 
+getName();
+
 const evenGames = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 1; i <= numberQuestions; i += 1) {
@@ -37,6 +40,7 @@ const evenGames = () => {
       return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'`);
     }
   }
-  return console.log('Congratulations, NAME!');
+  return console.log(`Congratulations, ${userName[0]}!`);
 };
-evenGames();
+
+export default evenGames;
