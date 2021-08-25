@@ -7,5 +7,3 @@ export const getName = () => {
   userName[0] = name;
   console.log(`Hello, ${name}!`);
 };
-
-export default getName;
