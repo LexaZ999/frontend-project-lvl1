@@ -4,3 +4,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/LexaZ999/frontend-project-lvl1/maintainability)
 
 [![asciicast](https://asciinema.org/a/432151.svg)](https://asciinema.org/a/432151)
+
+[![asciicast](https://asciinema.org/a/bdrXOEo8XLcZhO0PsrvQs8t3O.svg)](https://asciinema.org/a/bdrXOEo8XLcZhO0PsrvQs8t3O)
