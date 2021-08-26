@@ -1,25 +1,22 @@
 import { userName } from '../cli.js';
 import {
-  numMin, numMax, numberQuestions, randomInteger, isEven, getAnswer,
+  numMin, numMax, numberQuestions, randomInteger, isEven, compareAnswer,
 } from '../index.js';
 
-const evenGames = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 1; i <= numberQuestions; i += 1) {
-    const question = randomInteger(numMin, numMax);
-    console.log(`Question: ${question}`);
-
-    const yourAnswer = getAnswer();
-
-    const trueAnswer = (isEven(question)) ? 'yes' : 'no';
-    if (yourAnswer === String(trueAnswer)) {
-      console.log('Correct!');
-    } else {
-      return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'
-Let's try again, ${userName[0]}!`);
-    }
+const evenGames = (counter = 0) => {
+  if (counter >= numberQuestions) {
+    return console.log(`Congratulations, ${userName[0]}!`);
   }
-  return console.log(`Congratulations, ${userName[0]}!`);
+  if (counter === 0) {
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  }
+  const question = randomInteger(numMin, numMax);
+  const trueAnswer = (isEven(question)) ? 'yes' : 'no';
+
+  if (!compareAnswer(question, trueAnswer)) {
+    return false;
+  }
+  return evenGames(counter + 1);
 };
 
 export default evenGames;

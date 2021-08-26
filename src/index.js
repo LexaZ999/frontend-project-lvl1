@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { userName } from './cli.js';
 
 export const numMin = 0;
 export const numMax = 5;
@@ -26,4 +27,16 @@ export const gcd = (firstNum, secondNum) => {
     return firstNum;
   }
   return gcd(secondNum, firstNum % secondNum);
+};
+
+export const compareAnswer = (question, trueAnswer) => {
+  console.log(`Question: ${question}`);
+  const yourAnswer = getAnswer();
+  if (yourAnswer === String(trueAnswer)) {
+    console.log('Correct!');
+    return true;
+  }
+  console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}' 
+  Let's try again, ${userName[0]}!`);
+  return false;
 };
