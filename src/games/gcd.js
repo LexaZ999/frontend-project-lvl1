@@ -1,17 +1,18 @@
 import { userName } from '../cli.js';
 import {
-  numMin, numMax, numberQuestions, randomInteger, isEven, getAnswer,
+  numMin, numMax, numberQuestions, randomInteger, getAnswer, gcd,
 } from '../index.js';
 
-const evenGames = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const gcdGames = () => {
+  console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= numberQuestions; i += 1) {
-    const question = randomInteger(numMin, numMax);
+    const firstNumber = randomInteger(numMin, numMax);
+    const secondNumber = randomInteger(numMin, numMax);
+    const question = `${firstNumber} ${secondNumber}`;
+    const trueAnswer = gcd(firstNumber, secondNumber);
     console.log(`Question: ${question}`);
-
     const yourAnswer = getAnswer();
 
-    const trueAnswer = (isEven(question)) ? 'yes' : 'no';
     if (yourAnswer === String(trueAnswer)) {
       console.log('Correct!');
     } else {
@@ -22,4 +23,4 @@ Let's try again, ${userName[0]}!`);
   return console.log(`Congratulations, ${userName[0]}!`);
 };
 
-export default evenGames;
+export default gcdGames;

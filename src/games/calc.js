@@ -29,7 +29,8 @@ const calcGames = () => {
     if (yourAnswer === String(trueAnswer)) {
       console.log('Correct!');
     } else {
-      return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'`);
+      return console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'
+Let's try again, ${userName[0]}!`);
     }
   }
   return console.log(`Congratulations, ${userName[0]}!`);

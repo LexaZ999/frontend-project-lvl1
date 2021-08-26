@@ -20,3 +20,10 @@ export const getAnswer = () => {
   const answer = readlineSync.question('Your answer: ');
   return answer;
 };
+
+export const gcd = (firstNum, secondNum) => {
+  if (secondNum === 0) {
+    return firstNum;
+  }
+  return gcd(secondNum, firstNum % secondNum);
+};
