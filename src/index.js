@@ -40,3 +40,26 @@ export const compareAnswer = (question, trueAnswer) => {
   Let's try again, ${userName[0]}!`);
   return false;
 };
+
+export const arithmeticProgression = (firstMember, difference) => {
+  const arrayProgression = [firstMember];
+  const lengthProgression = randomInteger(5, 10);
+  let firstNumber = firstMember;
+  for (let i = 1; i < lengthProgression; i += 1) {
+    const subsequentMember = firstNumber + difference;
+    firstNumber = subsequentMember;
+    arrayProgression.push(subsequentMember);
+  }
+  return arrayProgression;
+};
+
+export const hideOneMember = (array) => {
+  const arrayQuestion = array;
+  const number = randomInteger(0, arrayQuestion.length - 1);
+  const hidden = arrayQuestion[number];
+  arrayQuestion[number] = '..';
+  const stringQuestion = arrayQuestion.join(' ');
+  const questionAnswer = [stringQuestion, hidden];
+
+  return questionAnswer;
+};
