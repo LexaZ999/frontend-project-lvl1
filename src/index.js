@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { userName } from './cli.js';
 
 export const numMin = 0;
-export const numMax = 5;
+export const numMax = 23;
 export const numberQuestions = 3;
 
 export const randomInteger = (min, max) => {
@@ -62,4 +62,12 @@ export const hideOneMember = (array) => {
   const questionAnswer = [stringQuestion, hidden];
 
   return questionAnswer;
+};
+
+export const prime = (number) => {
+  const sqrtNumber = Math.sqrt(number);
+  for (let i = 2; i <= sqrtNumber; i += 1) {
+    if (number % i === 0) return false;
+  }
+  return true;
 };
