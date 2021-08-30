@@ -65,6 +65,7 @@ export const hideOneMember = (array) => {
 };
 
 export const prime = (number) => {
+  if (number === 1 || number === 0) return false;
   const sqrtNumber = Math.sqrt(number);
   for (let i = 2; i <= sqrtNumber; i += 1) {
     if (number % i === 0) return false;
