@@ -1,9 +1,9 @@
 import { userName } from '../cli.js';
 import {
-  numMin, numMax, numberQuestions, randomInteger, gcd, compareAnswer,
+  numMin, numMax, numberQuestions, getRandomInteger, getGcd, compareAnswer,
 } from '../index.js';
 
-const gcdGames = (counter = 0) => {
+const runGcdGames = (counter = 0) => {
   if (counter >= numberQuestions) {
     return console.log(`Congratulations, ${userName[0]}!`);
   }
@@ -11,15 +11,15 @@ const gcdGames = (counter = 0) => {
     console.log('Find the greatest common divisor of given numbers.');
   }
 
-  const firstNumber = randomInteger(numMin, numMax);
-  const secondNumber = randomInteger(numMin, numMax);
+  const firstNumber = getRandomInteger(numMin, numMax);
+  const secondNumber = getRandomInteger(numMin, numMax);
   const question = `${firstNumber} ${secondNumber}`;
-  const trueAnswer = gcd(firstNumber, secondNumber);
+  const trueAnswer = getGcd(firstNumber, secondNumber);
 
   if (!compareAnswer(question, trueAnswer)) {
     return false;
   }
-  return gcdGames(counter + 1);
+  return runGcdGames(counter + 1);
 };
 
-export default gcdGames;
+export default runGcdGames;

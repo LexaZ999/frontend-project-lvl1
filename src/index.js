@@ -5,7 +5,7 @@ export const numMin = 0;
 export const numMax = 23;
 export const numberQuestions = 3;
 
-export const randomInteger = (min, max) => {
+export const getRandomInteger = (min, max) => {
   const randomNumber = min + Math.random() * (max + 1 - min);
   return Math.floor(randomNumber);
 };
@@ -22,11 +22,11 @@ export const getAnswer = () => {
   return answer;
 };
 
-export const gcd = (firstNum, secondNum) => {
+export const getGcd = (firstNum, secondNum) => {
   if (secondNum === 0) {
     return firstNum;
   }
-  return gcd(secondNum, firstNum % secondNum);
+  return getGcd(secondNum, firstNum % secondNum);
 };
 
 export const compareAnswer = (question, trueAnswer) => {
@@ -41,9 +41,9 @@ export const compareAnswer = (question, trueAnswer) => {
   return false;
 };
 
-export const arithmeticProgression = (firstMember, difference) => {
+export const getArithmeticProgression = (firstMember, difference) => {
   const arrayProgression = [firstMember];
-  const lengthProgression = randomInteger(5, 10);
+  const lengthProgression = getRandomInteger(5, 10);
   let firstNumber = firstMember;
   for (let i = 1; i < lengthProgression; i += 1) {
     const subsequentMember = firstNumber + difference;
@@ -55,7 +55,7 @@ export const arithmeticProgression = (firstMember, difference) => {
 
 export const hideOneMember = (array) => {
   const arrayQuestion = array;
-  const number = randomInteger(0, arrayQuestion.length - 1);
+  const number = getRandomInteger(0, arrayQuestion.length - 1);
   const hidden = arrayQuestion[number];
   arrayQuestion[number] = '..';
   const stringQuestion = arrayQuestion.join(' ');
@@ -64,7 +64,7 @@ export const hideOneMember = (array) => {
   return questionAnswer;
 };
 
-export const prime = (number) => {
+export const isPrime = (number) => {
   if (number === 1 || number === 0) return false;
   const sqrtNumber = Math.sqrt(number);
   for (let i = 2; i <= sqrtNumber; i += 1) {

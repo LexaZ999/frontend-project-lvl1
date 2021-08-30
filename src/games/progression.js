@@ -1,10 +1,10 @@
 import { userName } from '../cli.js';
 import {
-  numMin, numMax, numberQuestions, randomInteger, compareAnswer, hideOneMember,
-  arithmeticProgression,
+  numMin, numMax, numberQuestions, getRandomInteger, compareAnswer, hideOneMember,
+  getArithmeticProgression,
 } from '../index.js';
 
-const progressionGames = (counter = 0) => {
+const runProgressionGames = (counter = 0) => {
   if (counter >= numberQuestions) {
     return console.log(`Congratulations, ${userName[0]}!`);
   }
@@ -12,15 +12,15 @@ const progressionGames = (counter = 0) => {
     console.log('What number is missing in the progression?');
   }
 
-  const questionAnswer = hideOneMember(arithmeticProgression(randomInteger(numMin, numMax),
-    randomInteger(numMin, numMax)));
+  const questionAnswer = hideOneMember(getArithmeticProgression(getRandomInteger(numMin, numMax),
+    getRandomInteger(numMin, numMax)));
   const question = questionAnswer[0];
   const trueAnswer = questionAnswer[1];
 
   if (!compareAnswer(question, trueAnswer)) {
     return false;
   }
-  return progressionGames(counter + 1);
+  return runProgressionGames(counter + 1);
 };
 
-export default progressionGames;
+export default runProgressionGames;
